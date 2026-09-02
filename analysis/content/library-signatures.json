@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "fusion_collector_bbuy": [
+    {"offset": "0x00000B8C", "runtime_address": "0x02000B8C", "text": "[SDK+NINTENDO:DWC3.1.30006.20090131.2222_DWC_3_1_PLUS6]", "confidence": "confirmed"},
+    {"offset": "0x00000BC4", "runtime_address": "0x02000BC4", "text": "[SDK+NINTENDO:WiFi2.1.30003.0709200229]", "confidence": "confirmed"},
+    {"offset": "0x00000BEC", "runtime_address": "0x02000BEC", "text": "[SDK+UBIQUITOUS:CPS]", "confidence": "confirmed"},
+    {"offset": "0x00000C04", "runtime_address": "0x02000C04", "text": "[SDK+UBIQUITOUS:SSL]", "confidence": "confirmed"},
+    {"offset": "0x00000C1C", "runtime_address": "0x02000C1C", "text": "[SDK+NINTENDO:BACKUP]", "confidence": "confirmed"}
+  ],
+  "metal_masters_brze": [
+    {"offset": "0x00000BAC", "runtime_address": "0x02000BAC", "text": "[SDK+NINTENDO:BACKUP]", "confidence": "confirmed"}
+  ],
+  "scope": "null-terminated SDK signature strings found in decompressed ARM9; absence from this list is not proof a library is absent"
+}
