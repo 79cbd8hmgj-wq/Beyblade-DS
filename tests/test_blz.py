@@ -1,6 +1,6 @@
 import unittest
 
-from tools.nds.scan_rom import blz_decompress
+from tools.nds.blz import blz_decompress
 
 
 class BlzTests(unittest.TestCase):
