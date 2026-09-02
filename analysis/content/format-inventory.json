@@ -1,0 +1,45 @@
+{
+  "format_version": 1,
+  "fusion_collector_bbuy": {
+    "nitrofs_files": 5541,
+    "narc_files": 2720,
+    "bey_directory_files": 1716,
+    "bey_model_narcs": 858,
+    "bey_texture_narcs": 858,
+    "bey_narc_members": {
+      "model": {"count": 858, "compression": "LZ11", "decompressed_magic": "BMD0", "confidence": "confirmed"},
+      "texture": {"count": 858, "compression": "LZ11", "decompressed_magic": "BTX0", "confidence": "confirmed"}
+    },
+    "common_direct_formats": {
+      "NARC": 2720,
+      "ASBA_wrapped_NCGRB": 1266,
+      "ASBA_wrapped_NCLRB": 1178,
+      "RLCN_NCLR": 72,
+      "RGCN_NCGR": 20
+    }
+  },
+  "metal_masters_brze": {
+    "nitrofs_files": 4774,
+    "narc_files": 2384,
+    "bey_directory_files": 1340,
+    "bey_model_narcs": 670,
+    "bey_texture_narcs": 670,
+    "registered_bey_model_narcs": 666,
+    "bey_narc_members": {
+      "model": {"count": 670, "compression": "LZ11", "decompressed_magic": "BMD0", "confidence": "confirmed"},
+      "texture": {"count": 670, "compression": "LZ11", "decompressed_magic": "BTX0", "confidence": "confirmed"}
+    },
+    "common_direct_formats": {
+      "NARC": 2384,
+      "ASBA_wrapped_NCLRB": 750,
+      "ASBA_wrapped_NCGRB": 686,
+      "ASBA_wrapped_nscrB": 204,
+      "ASBA_wrapped_ncgB": 24
+    }
+  },
+  "notes": [
+    "NARC containers use standard BTAF/BTNF/GMIF sections in the inspected files.",
+    "The Bey model and texture families are especially clean: every inspected /bey/*.narc has exactly one LZ11 member and all such members validate.",
+    "ASBA is recorded as a wrapper/signature family only; its full compression semantics remain unresolved in this checkpoint."
+  ]
+}
