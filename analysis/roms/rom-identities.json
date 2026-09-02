@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "roms": [
+    {
+      "label": "metal_fusion_collectors",
+      "title": "BEYBLADE2LOC",
+      "game_code": "BBUY",
+      "maker_code": "18",
+      "size": 67108864,
+      "sha256": "e2730dac5cee463573c7d3f2293c6e85dd7bc26b219c9affb6d4a62b859a1a1b",
+      "arm9": {"rom_offset": 16384, "entry": 33556480, "ram_address": 33554432, "compressed_size": 633908, "decompressed_size": 1075832},
+      "arm7": {"rom_offset": 1295872, "entry": 37224448, "ram_address": 37224448, "size": 160048},
+      "nitrofs_file_count": 5541,
+      "arm9_overlay_count": 77,
+      "arm7_overlay_count": 0
+    },
+    {
+      "label": "metal_fusion_toysrus",
+      "title": "BEYBLADE2LOC",
+      "game_code": "BBUX",
+      "maker_code": "18",
+      "size": 67108864,
+      "sha256": "93bef8a6ab52f723135d7335bb1e80a5c51a1f0e27a57fe3b943c4f9d2641b44",
+      "arm9": {"rom_offset": 16384, "entry": 33556480, "ram_address": 33554432, "compressed_size": 633908, "decompressed_size": 1075832},
+      "arm7": {"rom_offset": 1295872, "entry": 37224448, "ram_address": 37224448, "size": 160048},
+      "nitrofs_file_count": 5541,
+      "arm9_overlay_count": 77,
+      "arm7_overlay_count": 0
+    },
+    {
+      "label": "metal_fusion_walmart",
+      "title": "BEYBLADE2LOC",
+      "game_code": "BBUZ",
+      "maker_code": "18",
+      "size": 67108864,
+      "sha256": "a5f07ea9681bf8115092ec8b07c14b94155c4b917fb9d779f2d096f662bdbc81",
+      "arm9": {"rom_offset": 16384, "entry": 33556480, "ram_address": 33554432, "compressed_size": 633908, "decompressed_size": 1075832},
+      "arm7": {"rom_offset": 1295872, "entry": 37224448, "ram_address": 37224448, "size": 160048},
+      "nitrofs_file_count": 5541,
+      "arm9_overlay_count": 77,
+      "arm7_overlay_count": 0
+    },
+    {
+      "label": "metal_masters",
+      "title": "BEYBLADE4NOA",
+      "game_code": "BRZE",
+      "maker_code": "A4",
+      "size": 67108864,
+      "sha256": "a8a2696cc448d5d5549caa32a1c95fe4a7542ff617852f91b6d5953c68b5012c",
+      "arm9": {"rom_offset": 16384, "entry": 33556480, "ram_address": 33554432, "compressed_size": 273668, "decompressed_size": 491320},
+      "arm7": {"rom_offset": 1031168, "entry": 37224448, "ram_address": 37224448, "size": 156808},
+      "nitrofs_file_count": 4774,
+      "arm9_overlay_count": 97,
+      "arm7_overlay_count": 0
+    }
+  ]
+}
