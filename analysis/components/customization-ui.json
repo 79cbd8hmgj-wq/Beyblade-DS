@@ -1,0 +1,23 @@
+{
+  "game": "Metal Masters (BRZE)",
+  "overlay": 46,
+  "overlay_ram_base": "0x021BE0E0",
+  "message_files": [
+    {"slot": 1, "category": "energy_ring", "tag": "CW", "path": "mes/mes_beyparts_cw.msdt", "path_runtime": "0x021C1A7C"},
+    {"slot": 2, "category": "fusion_wheel", "tag": "MW", "path": "mes/mes_beyparts_mw.msdt", "path_runtime": "0x021C1A98"},
+    {"slot": 3, "category": "track", "tag": "TR", "path": "mes/mes_beyparts_tr.msdt", "path_runtime": "0x021C1AB4"},
+    {"slot": 4, "category": "performance_tip", "tag": "BT", "path": "mes/mes_beyparts_bt.msdt", "path_runtime": "0x021C1AD0"}
+  ],
+  "category_stems": ["o4_c", "o4_m", "o4_t", "o4_b"],
+  "global_selection_namespace": [
+    {"category": "energy_ring", "reserved_range": "0x000-0x18F", "actual_record_count": 127},
+    {"category": "fusion_wheel", "reserved_range": "0x190-0x257", "actual_record_count": 101},
+    {"category": "track", "reserved_range": "0x258-0x31F", "actual_record_count": 107},
+    {"category": "performance_tip", "reserved_range": "0x320-0x3E6", "actual_record_count": 107}
+  ],
+  "sentinel": "0x3E7",
+  "category_decoder": "0x0201AF78",
+  "local_index_decoder": "0x0201AFD0",
+  "record_accessor": "0x0201B188",
+  "message_format_status": "unresolved; first u32 values are plausible counts but a naive little-endian offset-table interpretation was rejected"
+}
