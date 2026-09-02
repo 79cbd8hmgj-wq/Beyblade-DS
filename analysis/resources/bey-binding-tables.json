@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "games": {
+    "BBUY": {
+      "binding_run": {
+        "runtime_start": "0x020DB200",
+        "count": 929,
+        "stride": 8,
+        "record": ["pointer_to_model_pointer_entry", "pointer_to_texture_descriptor"],
+        "unique_model_indices": 858,
+        "unique_texture_indices": 858,
+        "unique_pairs": 858,
+        "stem_match_count": 929
+      },
+      "segments": [
+        {"prefix": "00", "runtime_start": "0x020DB8C0", "count": 93, "model_lookup_selector": 0, "texture_loader_selector": 1, "semantic": "face", "confidence": "strongly_supported"},
+        {"prefix": "01", "runtime_start": "0x020DC928", "count": 188, "model_lookup_selector": 1, "texture_loader_selector": 2, "semantic": "clear_wheel_energy_ring", "confidence": "strongly_supported"},
+        {"prefix": "02", "runtime_start": "0x020DC3A8", "count": 176, "model_lookup_selector": 2, "texture_loader_selector": 3, "semantic": "metal_wheel_fusion_wheel", "confidence": "strongly_supported"},
+        {"prefix": "03", "runtime_start": "0x020DBBA8", "count": 128, "model_lookup_selector": 3, "texture_loader_selector": 4, "semantic": "track", "confidence": "strongly_supported"},
+        {"prefix": "04", "runtime_start": "0x020DBFA8", "count": 128, "model_lookup_selector": 4, "texture_loader_selector": 5, "semantic": "bottom_performance_tip", "confidence": "strongly_supported"},
+        {"prefix": "05", "runtime_start": "0x020DB200", "count": 44, "model_lookup_selector": 5, "texture_loader_selector": 6, "semantic": "alternate_face_model_family", "confidence": "strongly_supported"},
+        {"prefix": "06", "runtime_start": "0x020DB5E0", "count": 92, "model_lookup_selector": 6, "texture_loader_selector": 7, "semantic": "alternate_clear_wheel_model_family", "confidence": "strongly_supported"},
+        {"prefix": "07", "runtime_start": "0x020DB360", "count": 80, "model_lookup_selector": 7, "texture_loader_selector": 8, "semantic": "alternate_metal_wheel_model_family", "confidence": "strongly_supported"}
+      ],
+      "consumers": [
+        {"runtime": "0x02025B30", "role": "bulk_texture_resource_loader_candidate", "evidence": "switch at 0x02025D54 chooses selectors 1..8, indexes selected subtable by id*8, reads record+4", "confidence": "strongly_supported"},
+        {"runtime": "0x0202744C", "role": "model_resource_release_lookup_candidate", "evidence": "arguments select category 0..7 and id; reads first field from category subtable then dereferences model path before call 0x0200414C", "confidence": "strongly_supported"},
+        {"runtime": "0x02102C40", "role": "secondary_resource_consumer_candidate", "confidence": "candidate"}
+      ]
+    },
+    "BRZE": {
+      "binding_run": {
+        "runtime_start": "0x020614DC",
+        "count": 1302,
+        "stride": 8,
+        "record": ["pointer_to_model_pointer_entry", "pointer_to_texture_descriptor"],
+        "unique_model_indices": 666,
+        "unique_texture_indices": 666,
+        "unique_pairs": 666,
+        "stem_match_count": 1302
+      },
+      "segments": [
+        {"prefix": "00", "runtime_start": "0x0206288C", "count": 260, "context_half_size": 130, "model_lookup_selector": 0, "semantic": "face", "confidence": "strongly_supported"},
+        {"prefix": "01", "runtime_start": "0x020630AC", "count": 412, "context_half_size": 206, "model_lookup_selector": 1, "semantic": "clear_wheel_energy_ring", "confidence": "strongly_supported"},
+        {"prefix": "02", "runtime_start": "0x020614DC", "count": 202, "context_half_size": 101, "model_lookup_selector": 2, "semantic": "metal_wheel_fusion_wheel", "confidence": "strongly_supported"},
+        {"prefix": "03", "runtime_start": "0x020621DC", "count": 214, "context_half_size": 107, "model_lookup_selector": 3, "semantic": "track", "confidence": "strongly_supported"},
+        {"prefix": "04", "runtime_start": "0x02061B2C", "count": 214, "context_half_size": 107, "model_lookup_selector": 4, "semantic": "bottom_performance_tip", "confidence": "strongly_supported"}
+      ],
+      "render_context_evidence": "Every category segment is exactly two equal halves. Representative second-half BMD0 model names contain 'cus', while first-half models use non-cus/spin-oriented names.",
+      "filesystem_only_pairs": ["03_047", "03_048", "03_154", "03_155"],
+      "consumers": [
+        {"runtime": "0x0201F27C", "role": "bulk_texture_resource_loader_candidate", "evidence": "switch at 0x0201F648 chooses five category bases, indexes by id*8 and reads record+4", "confidence": "strongly_supported"},
+        {"runtime": "0x02020B2C", "role": "model_resource_release_lookup_candidate", "evidence": "category 0..4 and id select the first pair field; model path is dereferenced before call 0x020046D0", "confidence": "strongly_supported"},
+        {"runtime": "0x02021434", "role": "secondary_component_resource_consumer_candidate", "confidence": "candidate"},
+        {"runtime": "0x02074288", "role": "late_resource_consumer_candidate", "confidence": "candidate"}
+      ]
+    }
+  }
+}

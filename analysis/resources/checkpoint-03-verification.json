@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "unit_tests": {"command": "python3 -m unittest discover -s tests -v", "passed": 4, "failed": 0},
+  "python_compile": {"modules": ["tools/nds/blz.py", "tools/nds/resource_map.py", "tools/nds/binding_map.py"], "result": "pass"},
+  "json_validation": {"files": ["analysis/resources/bey-binding-tables.json", "analysis/overlays/debug-enums.json"], "result": "pass"},
+  "real_arm9_integration": {
+    "BBUY": {"binding_runtime_start": "0x020DB200", "records": 929, "unique_pairs": 858},
+    "BRZE": {"binding_runtime_start": "0x020614DC", "records": 1302, "unique_pairs": 666},
+    "result": "pass"
+  },
+  "rom_mutation": false
+}
