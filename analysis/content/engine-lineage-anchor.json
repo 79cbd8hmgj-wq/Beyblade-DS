@@ -1,0 +1,7 @@
+{
+  "subsystem": "custom Bey presentation/resource loading",
+  "fusion": {"function": "bbCustomBeyTsrKeySet", "runtime_address": "0x02026008"},
+  "masters": {"function": "bbCustomBeyTsrKeySet", "runtime_address": "0x0201F4F8"},
+  "shared_behavior": ["five-way custom-part category switch", "8-byte logical usage records", "12-byte texture descriptors", "physical NARC model/texture path indirection"],
+  "confidence": "strongly_supported_cross_game_homology"
+}
