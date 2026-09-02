@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "fusion_collector_bbuy": {
+    "bbCustomBeyTsrKeySet": {"runtime_address": "0x02026008", "mode": "ARM", "confidence": "strongly_supported", "evidence": "function prologue, debug identifier, five-way category switch, and literal references to all five primary resource-table bases"},
+    "bbFileEntryMapLoad": {"literal_user": "0x02027400", "confidence": "strongly_supported"},
+    "EnemyEquipSet": {"literal_users": ["0x02023EFC", "0x02023FCC", "0x02024014", "0x02024060", "0x020240AC", "0x020240F8"], "confidence": "candidate_function_cluster"},
+    "BeyBladeLOC": {"consumer_regions": ["0x02009E0C", "0x0200A210"], "observed_stride": 40, "confidence": "candidate_record_table_lead"}
+  },
+  "metal_masters_brze": {
+    "bbCustomBeyTsrKeySet": {"runtime_address": "0x0201F4F8", "mode": "ARM", "confidence": "strongly_supported", "evidence": "homologous function prologue, debug identifier, five-way category switch, and literal references to all five primary resource-table bases"},
+    "bbFileEntryMapLoad": {"literal_user": "0x02020AE0", "confidence": "strongly_supported"},
+    "EnemyEquipSet": {"literal_users": ["0x0201D4F8", "0x0201D540", "0x0201D590", "0x0201D5E8"], "confidence": "candidate_function_cluster"}
+  }
+}
