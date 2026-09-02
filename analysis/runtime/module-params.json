@@ -1,0 +1,50 @@
+{
+  "fusion": {
+    "module_params_runtime_address": "0x02000B68",
+    "static_bss_start": "0x02101240",
+    "static_bss_end": "0x021D12C0",
+    "autoload_list": "0x020FF8A0",
+    "autoload_start": "0x020FBA20",
+    "autoloads": [
+      {
+        "index": 0,
+        "destination": "0x01FF8000",
+        "data_size": 22464,
+        "bss_size": 0,
+        "source_offset": "0xFBA20"
+      },
+      {
+        "index": 1,
+        "destination": "0x027E0000",
+        "data_size": 96,
+        "bss_size": 5056,
+        "source_offset": "0x1011E0"
+      }
+    ],
+    "mapping_note": "runtime addresses in static BSS are not backed by same-offset decompressed ARM9 bytes; autoload source bytes are copied to destination addresses before BSS initialization"
+  },
+  "masters": {
+    "module_params_runtime_address": "0x02000B88",
+    "static_bss_start": "0x02073540",
+    "static_bss_end": "0x021B8700",
+    "autoload_list": "0x02077FA0",
+    "autoload_start": "0x02073540",
+    "autoloads": [
+      {
+        "index": 0,
+        "destination": "0x01FF8000",
+        "data_size": 18816,
+        "bss_size": 0,
+        "source_offset": "0x73540"
+      },
+      {
+        "index": 1,
+        "destination": "0x027E0000",
+        "data_size": 96,
+        "bss_size": 5248,
+        "source_offset": "0x77EC0"
+      }
+    ],
+    "mapping_note": "runtime addresses in static BSS are not backed by same-offset decompressed ARM9 bytes; autoload source bytes are copied to destination addresses before BSS initialization"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "game": "Metal Masters (BRZE)",
+  "component_resource_manager": {
+    "global": "0x021AF524",
+    "field_00": "pointer to active five-part resource state",
+    "field_04": "pointer to 16-byte-record allocation",
+    "field_08": "16-byte-record count",
+    "field_0C": "24-byte-record count",
+    "field_10": "pointer to 24-byte-record allocation"
+  },
+  "active_resource_state": {
+    "old_loaded_component_ids": "5 x u16 at +0x18..+0x20",
+    "current_component_ids": "5 x u16 at +0x2C..+0x34",
+    "dirty_bitmask": "+0x10",
+    "comparison_function": "0x02021524",
+    "resource_id_rule": "0 = none; otherwise subtract 1 before zero-based category resource lookup",
+    "category_order": ["face", "energy_ring", "fusion_wheel", "track", "performance_tip"]
+  },
+  "battle_participant": {
+    "base": "0x020745C0 + participant*0x158",
+    "customization_selection_ptrs": ["+0xC8", "+0xCC", "+0xD0", "+0xD4"],
+    "normalized_selection_ids": ["+0xD8", "+0xDC", "+0xE0", "+0xE4"],
+    "primary_component_vectors": "four 0x14-byte vectors at +0x14",
+    "secondary_component_vectors": "four 0x14-byte vectors at +0x64",
+    "additional_vector": "0x14-byte vector at +0xB4",
+    "aggregate_vector": "0x14-byte vector at +0x00",
+    "derived_type_byte": "+0x108",
+    "derived_mode_byte": "+0x10C",
+    "derived_resource_halfwords": "five values at +0x10E..+0x116"
+  },
+  "customization_selection_global": {
+    "address": "0x020749CC",
+    "encoding": "u16 packed selection IDs; low 10 bits are global UI selection ID"
+  },
+  "aggregation": {
+    "setup": "0x0201DA48",
+    "primary_builder": "0x0201DAD0",
+    "secondary_builder": "0x0201DBCC",
+    "additional_vector_builder": "0x0201DC58",
+    "aggregate": "0x0201D908",
+    "vector_add_and_clamp": "0x0201DC80",
+    "clamp": "0x0201DD1C",
+    "component_record_accessor": "0x0201B188",
+    "primary_script_apply": "0x0201B54C",
+    "secondary_script_apply": "0x0201B590",
+    "effect_dispatcher": "0x0201B724"
+  }
+}
