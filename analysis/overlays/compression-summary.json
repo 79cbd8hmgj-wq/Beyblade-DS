@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "confidence": "confirmed",
+  "blz_footer_rule": "The 24-bit compressed-length field includes the BLZ header; bytes before that region are an uncompressed prefix.",
+  "fusion": {
+    "game_code": "BBUY",
+    "arm9_overlay_count": 77,
+    "compressed_overlay_count": 77,
+    "compressed_bytes_total": 619504,
+    "decompressed_bytes_total": 1286688,
+    "declared_ram_size_matches": 77,
+    "decompression_failures": 0
+  },
+  "masters": {
+    "game_code": "BRZE",
+    "arm9_overlay_count": 97,
+    "compressed_overlay_count": 97,
+    "compressed_bytes_total": 707752,
+    "decompressed_bytes_total": 1404832,
+    "declared_ram_size_matches": 97,
+    "decompression_failures": 0
+  },
+  "regression": "The older decoder treated the compressed-length field as excluding the header and could absorb an uncompressed prefix into the compressed stream. Masters overlay 0 exposed the bug."
+}
