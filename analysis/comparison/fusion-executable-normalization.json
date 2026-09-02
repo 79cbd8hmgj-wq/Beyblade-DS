@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "confidence": "confirmed",
+  "arm9_ram_base": "0x02000000",
+  "post_secure_region_start": "0x00004000",
+  "callsite_count": 13,
+  "callsites": [
+    "0x0203141C", "0x020314D0", "0x0203155C", "0x02031610",
+    "0x020AD7CC", "0x020AD878", "0x020AFDDC", "0x020B6C18",
+    "0x020B9C2C", "0x020C2A80", "0x020C2CB4", "0x020C2D18",
+    "0x020C2FD0"
+  ],
+  "secure_area_targets": {
+    "BBUY": {
+      "swi_3_stub": "0x020004AC",
+      "swi_11_stub": "0x02000284"
+    },
+    "BBUX": {
+      "swi_3_stub": "0x0200036E",
+      "swi_11_stub": "0x020005E6"
+    },
+    "BBUZ": {
+      "swi_3_stub": "0x02000154",
+      "swi_11_stub": "0x020006E4"
+    }
+  },
+  "stub_bytes": {
+    "swi_3_stub": "03df7047",
+    "swi_11_stub": "0bdf7047"
+  },
+  "interpretation": {
+    "twelve_calls": "ARM BLX immediate to the per-ROM Thumb stub 'SWI 3; BX LR'",
+    "one_call_at_0x020C2A80": "ARM BLX immediate to the per-ROM Thumb stub 'SWI 0xB; BX LR'",
+    "normalized_result": "After canonicalizing these 13 four-byte BLX instructions, BBUY, BBUX, and BBUZ are byte-identical from decompressed ARM9 offset 0x4000 through the end of ARM9."
+  },
+  "conclusion": "The previously observed post-secure-area edition deltas are linker/secure-area relocation differences, not distinct gameplay logic. Retailer-exclusive behavior must therefore come from common code consulting some runtime/header state, save/default state, or another mechanism shared by all three editions.",
+  "caveat": "This does not yet identify the retailer-selection mechanism itself."
+}
