@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "fusion": {
+    "overlay_id": 0,
+    "runtime_base": "0x021D12C0",
+    "decompressed_size": 15040,
+    "character_debug_labels": {
+      "00": "GINGA", "01": "KYOYA", "02": "BENKEI", "03": "DAIDOUJI",
+      "04": "KENTA", "05": "HIKARU", "06": "RYUGA", "07": "TETSUYA",
+      "08": "HYOMA", "09": "TSUBASA", "10": "YUU", "11": "TOBIO",
+      "12": "DUMMY", "13": "DUMMY", "14": "KILLER", "15": "SORA",
+      "16": "VAN", "17": "DUMMY", "18": "AEJIS", "19": "CLOW",
+      "20": "ZAKO_A", "21": "ZAKO_B", "22": "ZAKO_C", "23": "ZAKO_D",
+      "24": "ZAKO_E", "25": "FURYO_A", "26": "FURYO_B", "27": "FURYO_C",
+      "28": "FURYO_D", "29": "FURYO_E", "30": "NOS_CR_A", "31": "NOS_CR_B",
+      "32": "NOS_CR_C", "33": "NOS_CR_D", "34": "NOS_EG_A", "35": "NOS_EG_B",
+      "36": "NOS_EG_C", "37": "NOS_EG_D"
+    },
+    "bey_variant_labels": [
+      "PEGASIS_A", "PEGASIS_B", "PEGASIS_C", "PEGASIS_D",
+      "LEONE_A", "LEONE_B", "LEONE_C", "LEONE_D",
+      "SAGITTARIO_A", "SAGITTARIO_B", "SAGITTARIO_C", "SAGITTARIO_D",
+      "AQUARIO_A", "AQUARIO_B", "AQUARIO_C", "AQUARIO_D",
+      "BULL_A", "BULL_B", "BULL_C", "BULL_D",
+      "CANCER_A", "CANCER_B", "CANCER_C", "CANCER_D",
+      "VOLF_A", "VOLF_B", "VOLF_C", "VOLF_D",
+      "LDRAGO_A", "LDRAGO_B", "LDRAGO_C", "LDRAGO_D",
+      "ARIES_A", "ARIES_B", "ARIES_C", "ARIES_D",
+      "AQUILA_A", "AQUILA_B", "AQUILA_C", "AQUILA_D",
+      "LIBRA_A", "LIBRA_B", "LIBRA_C", "LIBRA_D",
+      "CYBERPEGASIS_A", "CYBERPEGASIS_B", "CYBERPEGASIS_C", "CYBERPEGASIS_D"
+    ],
+    "debug_menu_strings": ["- Cyber Pegasus", "- Counter Leone", "- Shadow Saggitario", "Collector's Edition", "DEBUG MENU"]
+  },
+  "masters": {
+    "overlay_id": 1,
+    "runtime_base": "0x021B8700",
+    "decompressed_size": 16160,
+    "anchors": ["Eldrago", "MEldrago", "07.BALANCE", "LDRAGO_A", "LDRAGO_B", "GEMIOS_A", "GEMIOS_B", "BeybladeDS - SOUND TEST", "BeybladeDS - EVENT FLAG"]
+  },
+  "interpretation": "These are debug/developer labels and high-value cross-reference anchors. They are not yet proven to be the canonical gameplay master records."
+}
