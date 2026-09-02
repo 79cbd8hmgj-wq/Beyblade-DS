@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nintendo DS content-structure helpers for the Beyblade RE project.
+"""Nintendo DS content-structure helpers for the Beyblade reverse-engineering project.
 
 The functions in this module operate on immutable byte strings. They parse
 standard NARC containers, Nintendo LZ11 streams, and the ARM9 Bey resource
@@ -78,9 +78,7 @@ def lz11_decompress(data: bytes, max_output: int = 64 * 1024 * 1024) -> bytes:
                 if pos + 4 > len(data):
                     raise ValueError("truncated LZ11 long back-reference")
                 second, third, fourth = data[pos + 1], data[pos + 2], data[pos + 3]
-                length = (
-                    ((first & 0x0F) << 12) | (second << 4) | (third >> 4)
-                ) + 0x111
+                length = (((first & 0x0F) << 12) | (second << 4) | (third >> 4)) + 0x111
                 displacement = (((third & 0x0F) << 8) | fourth) + 1
                 pos += 4
             else:
@@ -92,14 +90,11 @@ def lz11_decompress(data: bytes, max_output: int = 64 * 1024 * 1024) -> bytes:
                 pos += 2
 
             if displacement <= 0 or displacement > len(out):
-                raise ValueError(
-                    f"invalid LZ11 displacement {displacement} at output {len(out)}"
-                )
+                raise ValueError(f"invalid LZ11 displacement {displacement} at output {len(out)}")
             for _ in range(length):
                 if len(out) >= out_size:
                     break
                 out.append(out[-displacement])
-
     return bytes(out)
 
 
@@ -155,6 +150,44 @@ def parse_narc(data: bytes) -> list[dict]:
     return result
 
 
+def classify_narc(data: bytes) -> dict:
+    """Summarize member compression and four-byte payload magics in a NARC."""
+    members = parse_narc(data)
+    compressed = 0
+    magics: dict[str, int] = {}
+    for member in members:
+        payload = member["data"]
+        if payload.startswith(b"\x11"):
+            payload = lz11_decompress(payload)
+            compressed += 1
+        magic_bytes = payload[:4]
+        if len(magic_bytes) == 4 and all(0x20 <= byte < 0x7F for byte in magic_bytes):
+            magic = magic_bytes.decode("ascii")
+        else:
+            magic = magic_bytes.hex()
+        magics[magic] = magics.get(magic, 0) + 1
+    return {
+        "member_count": len(members),
+        "compressed_member_count": compressed,
+        "member_magics": magics,
+    }
+
+
+_SDK_RE = re.compile(rb"\[SDK\+[^\]\x00]+\]")
+
+
+def find_sdk_signatures(image: bytes, *, ram_base: int = 0x02000000) -> list[dict]:
+    """Locate embedded Nintendo/middleware SDK signature strings."""
+    result = []
+    for match in _SDK_RE.finditer(image):
+        result.append({
+            "offset": match.start(),
+            "runtime_address": ram_base + match.start(),
+            "text": match.group(0).decode("ascii", "replace"),
+        })
+    return result
+
+
 _BEY_PATH_RE = re.compile(rb"/bey/([0-9]{2})_([^\x00/]+)\.narc\x00")
 
 
@@ -176,20 +209,11 @@ def _is_texture_path(path: str) -> bool:
     return path[:-5].endswith("t")
 
 
-def find_bey_resource_tables(
-    arm9: bytes,
-    *,
-    ram_base: int = 0x02000000,
-    min_model_entries: int = 32,
-) -> dict:
+def find_bey_resource_tables(arm9: bytes, *, ram_base: int = 0x02000000, min_model_entries: int = 32) -> dict:
     """Locate the inherited Bey model/texture/logical-usage lookup tables."""
     path_by_address = _collect_bey_paths(arm9, ram_base)
-    model_addresses = {
-        addr for addr, path in path_by_address.items() if not _is_texture_path(path)
-    }
-    texture_addresses = {
-        addr for addr, path in path_by_address.items() if _is_texture_path(path)
-    }
+    model_addresses = {addr for addr, path in path_by_address.items() if not _is_texture_path(path)}
+    texture_addresses = {addr for addr, path in path_by_address.items() if _is_texture_path(path)}
     if not model_addresses or not texture_addresses:
         raise ValueError("Bey model/texture path strings were not found")
 
@@ -208,16 +232,11 @@ def find_bey_resource_tables(
         if count > best_count:
             best_start, best_count = start, count
     if best_start is None or best_count < min_model_entries:
-        raise ValueError(
-            f"no Bey model pointer run with at least {min_model_entries} entries"
-        )
+        raise ValueError(f"no Bey model pointer run with at least {min_model_entries} entries")
 
     model_start = best_start
     model_end = model_start + best_count * 4
-    model_paths = [
-        path_by_address[_u32(arm9, model_start + i * 4)]
-        for i in range(best_count)
-    ]
+    model_paths = [path_by_address[_u32(arm9, model_start + i * 4)] for i in range(best_count)]
 
     texture_start = model_end
     texture_records: list[dict] = []
@@ -229,18 +248,10 @@ def find_bey_resource_tables(
         name = _cstring(arm9, name_ptr - ram_base)
         if name is None or not name.endswith(".bin"):
             break
-        texture_records.append({
-            "index": len(texture_records),
-            "offset": pos,
-            "path": path_by_address[path_ptr],
-            "name": name,
-        })
+        texture_records.append({"index": len(texture_records), "offset": pos, "path": path_by_address[path_ptr], "name": name})
         pos += 12
     if len(texture_records) != best_count:
-        raise ValueError(
-            "model pointer count and adjacent texture descriptor count differ: "
-            f"{best_count} vs {len(texture_records)}"
-        )
+        raise ValueError(f"model pointer count and adjacent texture descriptor count differ: {best_count} vs {len(texture_records)}")
     texture_end = pos
 
     model_table_runtime = ram_base + model_start
@@ -252,14 +263,7 @@ def find_bey_resource_tables(
         model_entry_ptr, texture_entry_ptr = struct.unpack_from("<II", arm9, pos)
         model_delta = model_entry_ptr - model_table_runtime
         texture_delta = texture_entry_ptr - texture_table_runtime
-        if (
-            model_delta < 0
-            or model_delta >= best_count * 4
-            or model_delta % 4
-            or texture_delta < 0
-            or texture_delta >= best_count * 12
-            or texture_delta % 12
-        ):
+        if (model_delta < 0 or model_delta >= best_count * 4 or model_delta % 4 or texture_delta < 0 or texture_delta >= best_count * 12 or texture_delta % 12):
             break
         model_index = model_delta // 4
         texture_index = texture_delta // 12
@@ -282,11 +286,7 @@ def find_bey_resource_tables(
     for record in usage_records:
         group = record["group"]
         if not runs or runs[-1]["group"] != group:
-            runs.append({
-                "group": group,
-                "start_index": record["index"],
-                "count": 1,
-            })
+            runs.append({"group": group, "start_index": record["index"], "count": 1})
         else:
             runs[-1]["count"] += 1
     for run in runs:
@@ -297,26 +297,9 @@ def find_bey_resource_tables(
         run["runtime_address"] = ram_base + usage_start + start * 8
 
     return {
-        "model_pointer_table": {
-            "offset": model_start,
-            "runtime_address": ram_base + model_start,
-            "count": best_count,
-            "end_offset": model_end,
-        },
-        "texture_descriptor_table": {
-            "offset": texture_start,
-            "runtime_address": ram_base + texture_start,
-            "count": len(texture_records),
-            "stride": 12,
-            "end_offset": texture_end,
-        },
-        "usage_table": {
-            "offset": usage_start,
-            "runtime_address": ram_base + usage_start,
-            "count": len(usage_records),
-            "stride": 8,
-            "end_offset": usage_start + len(usage_records) * 8,
-        },
+        "model_pointer_table": {"offset": model_start, "runtime_address": ram_base + model_start, "count": best_count, "end_offset": model_end},
+        "texture_descriptor_table": {"offset": texture_start, "runtime_address": ram_base + texture_start, "count": len(texture_records), "stride": 12, "end_offset": texture_end},
+        "usage_table": {"offset": usage_start, "runtime_address": ram_base + usage_start, "count": len(usage_records), "stride": 8, "end_offset": usage_start + len(usage_records) * 8},
         "category_runs": runs,
         "model_paths": model_paths,
         "texture_records": texture_records,
@@ -325,31 +308,16 @@ def find_bey_resource_tables(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Map Bey model/texture lookup tables in a decompressed NDS ARM9 image."
-    )
+    parser = argparse.ArgumentParser(description="Map Bey model/texture lookup tables in a decompressed NDS ARM9 image.")
     parser.add_argument("arm9", type=Path, help="decompressed ARM9 binary")
     parser.add_argument("--ram-base", type=lambda s: int(s, 0), default=0x02000000)
     parser.add_argument("--min-model-entries", type=int, default=32)
     parser.add_argument("--output", type=Path)
-    parser.add_argument(
-        "--compact",
-        action="store_true",
-        help="omit per-model, texture, and logical-usage records",
-    )
+    parser.add_argument("--compact", action="store_true", help="omit per-model, texture, and logical-usage records")
     args = parser.parse_args()
-
-    result = find_bey_resource_tables(
-        args.arm9.read_bytes(),
-        ram_base=args.ram_base,
-        min_model_entries=args.min_model_entries,
-    )
+    result = find_bey_resource_tables(args.arm9.read_bytes(), ram_base=args.ram_base, min_model_entries=args.min_model_entries)
     if args.compact:
-        result = {
-            key: value
-            for key, value in result.items()
-            if key not in {"model_paths", "texture_records", "usage_records"}
-        }
+        result = {key: value for key, value in result.items() if key not in {"model_paths", "texture_records", "usage_records"}}
     text = json.dumps(result, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
