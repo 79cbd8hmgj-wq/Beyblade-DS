@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "fusion_collector_bbuy": {
+    "arm9_overlay_count": 77,
+    "overlay_id_range": [0, 76],
+    "compressed_overlay_count": 77,
+    "compression_flag": "overlay reserved word high byte == 0x01",
+    "rom_extent": ["0x0009F800", "0x0013C508"],
+    "runtime_extent": ["0x021D12C0", "0x02208F80"],
+    "total_stored_bytes": 619504,
+    "total_declared_ram_bytes": 1286688,
+    "confidence": "confirmed"
+  },
+  "metal_masters_brze": {
+    "arm9_overlay_count": 97,
+    "overlay_id_range": [0, 96],
+    "compressed_overlay_count": 97,
+    "compression_flag": "overlay reserved word high byte == 0x01",
+    "rom_extent": ["0x00047C00", "0x000FBB50"],
+    "runtime_extent": ["0x021B8700", "0x02275720"],
+    "total_stored_bytes": 707752,
+    "total_declared_ram_bytes": 1404832,
+    "confidence": "confirmed"
+  },
+  "reproduction": "tools/nds/scan_rom.py emits every overlay table record, including ID, RAM address, declared size, BSS, file ID, ROM extent, hash, and reserved/compression word. Full generated maps belong under analysis/generated/."
+}
