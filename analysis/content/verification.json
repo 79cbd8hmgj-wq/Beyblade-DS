@@ -1,0 +1,16 @@
+{
+  "checkpoint": 2,
+  "local_verification": {
+    "unit_test_command": "python3 -m unittest discover -s tests -v",
+    "unit_tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "compile_command": "python3 -m compileall -q tools tests",
+    "compile_exit_code": 0,
+    "real_arm9_validation": {
+      "fusion_bbuy": {"model_pointer_count": 858, "texture_descriptor_count": 858, "usage_count": 929},
+      "masters_brze": {"model_pointer_count": 666, "texture_descriptor_count": 666, "usage_count": 1302}
+    }
+  },
+  "environment_note": "Direct git clone from the analysis container was unavailable because external DNS is disabled; GitHub branch/diff verification was performed through the connected GitHub API instead."
+}
