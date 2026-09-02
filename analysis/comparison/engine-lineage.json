@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "fusion_editions": {
+    "game_codes": ["BBUY", "BBUX", "BBUZ"],
+    "nitrofs_paths_identical": true,
+    "nitrofs_file_count_each": 5541,
+    "nitrofs_files_with_different_content": 0,
+    "arm9_overlay_count_each": 77,
+    "arm9_overlays_with_different_content": 0,
+    "arm7_sha256_identical": true,
+    "arm9_blz_decompressed_size_each": 1075832,
+    "post_secure_area_arm9_differences": {
+      "BBUY_vs_BBUX": {"different_bytes": 33, "runs": 26},
+      "BBUY_vs_BBUZ": {"different_bytes": 23, "runs": 13},
+      "BBUX_vs_BBUZ": {"different_bytes": 30, "runs": 26}
+    },
+    "conclusion": "Treat Metal Fusion as one shared reverse-engineering target plus a small edition-specific ARM9 delta."
+  },
+  "metal_fusion_vs_metal_masters": {
+    "shared_nitrofs_paths": 1046,
+    "shared_paths_byte_identical": 99,
+    "metal_fusion_only_paths": 4495,
+    "metal_masters_only_paths": 3728,
+    "metal_masters_files_with_byte_identical_fusion_counterpart_any_path": 304,
+    "shared_path_breakdown": {
+      "bey": {"shared": 658, "identical": 1},
+      "eff": {"shared": 222, "identical": 86},
+      "fld": {"shared": 42, "identical": 0},
+      "fldcom": {"shared": 30, "identical": 8},
+      "menu": {"shared": 17, "identical": 0},
+      "mes": {"shared": 13, "identical": 0},
+      "_french": {"shared": 27, "identical": 0},
+      "_spanish": {"shared": 27, "identical": 0},
+      "cam": {"shared": 2, "identical": 2},
+      "hulogo": {"shared": 3, "identical": 2},
+      "error": {"shared": 4, "identical": 0},
+      "sound": {"shared": 1, "identical": 0}
+    },
+    "conclusion": "Metal Masters is not a simple asset-identical revision, but substantial path and byte-level reuse confirms a useful common content pipeline and likely engine ancestry."
+  }
+}
