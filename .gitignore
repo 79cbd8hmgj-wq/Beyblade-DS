@@ -1,0 +1,15 @@
+# Commercial ROM inputs stay local.
+roms/
+*.nds
+
+# Generated reverse-engineering output.
+work/
+dumps/
+analysis/generated/
+analysis/runtime/
+analysis/traces/
+
+# Local tooling noise.
+__pycache__/
+*.pyc
+.DS_Store
