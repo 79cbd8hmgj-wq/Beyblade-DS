@@ -1,0 +1,15 @@
+{
+  "fusion_collector_bbuy": {
+    "function": "bbCustomBeyTsrKeySet",
+    "runtime_address": "0x02026008",
+    "switch_category_bases": ["0x020DB8C0", "0x020DC928", "0x020DC3A8", "0x020DBBA8", "0x020DBFA8"],
+    "literal_pool_addresses": ["0x02026424", "0x02026428", "0x0202642C", "0x02026430", "0x02026434"]
+  },
+  "metal_masters_brze": {
+    "function": "bbCustomBeyTsrKeySet",
+    "runtime_address": "0x0201F4F8",
+    "switch_category_bases": ["0x0206288C", "0x020630AC", "0x020614DC", "0x020621DC", "0x02061B2C"],
+    "literal_pool_addresses": ["0x0201F88C", "0x0201F890", "0x0201F894", "0x0201F898", "0x0201F89C"]
+  },
+  "confidence": "confirmed_static_literal_values"
+}
