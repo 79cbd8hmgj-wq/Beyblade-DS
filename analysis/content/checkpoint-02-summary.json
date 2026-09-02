@@ -1,0 +1,8 @@
+{
+  "checkpoint": 2,
+  "status": "static_content_layer_mapped",
+  "fusion": {"physical_model_resources": 858, "logical_usage_records": 929, "arm9_overlays": 77},
+  "masters": {"physical_model_resources_on_disk": 670, "registered_model_resources": 666, "logical_usage_records": 1302, "arm9_overlays": 97},
+  "confirmed_formats": ["NARC", "LZ11", "BMD0", "BTX0"],
+  "next_boundary": "gameplay records: complete Bey presets, numeric part properties, opponent loadouts, inventory/save IDs and unlocks"
+}
