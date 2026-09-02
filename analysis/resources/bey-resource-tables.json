@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "confidence": "confirmed",
+  "fusion": {
+    "game_code": "BBUY",
+    "arm9_ram_base": "0x02000000",
+    "filesystem_bey_narcs": 1716,
+    "model_resources": {
+      "count": 858,
+      "table_offset": "0x000D7C60",
+      "runtime_address": "0x020D7C60",
+      "end_offset_exclusive": "0x000D89C8",
+      "entry_size": 4,
+      "entry_kind": "pointer to /bey/NN_NNN.narc string",
+      "prefix_counts": {"00": 93, "01": 172, "02": 148, "03": 113, "04": 128, "05": 44, "06": 86, "07": 74},
+      "narc_member_format": "one LZ11-compressed BMD0"
+    },
+    "texture_resources": {
+      "count": 858,
+      "table_offset": "0x000D89C8",
+      "runtime_address": "0x020D89C8",
+      "end_offset_exclusive": "0x000DB200",
+      "entry_size": 12,
+      "record": ["pointer to /bey/NN_NNNt.narc string", "pointer to NN_NNNt.bin member-name string", "zero"],
+      "prefix_counts": {"00": 93, "01": 172, "02": 148, "03": 113, "04": 128, "05": 44, "06": 86, "07": 74},
+      "narc_member_format": "one LZ11-compressed BTX0"
+    },
+    "unmapped_filesystem_resource_pairs": []
+  },
+  "masters": {
+    "game_code": "BRZE",
+    "arm9_ram_base": "0x02000000",
+    "filesystem_bey_narcs": 1340,
+    "model_resources": {
+      "count": 666,
+      "table_offset": "0x0005EB3C",
+      "runtime_address": "0x0205EB3C",
+      "end_offset_exclusive": "0x0005F5A4",
+      "entry_size": 4,
+      "entry_kind": "pointer to /bey/NN_NNN.narc string",
+      "prefix_counts": {"00": 96, "01": 182, "02": 120, "03": 134, "04": 134},
+      "narc_member_format": "one LZ11-compressed BMD0"
+    },
+    "texture_resources": {
+      "count": 666,
+      "table_offset": "0x0005F5A4",
+      "runtime_address": "0x0205F5A4",
+      "end_offset_exclusive": "0x000614DC",
+      "entry_size": 12,
+      "record": ["pointer to /bey/NN_NNNt.narc string", "pointer to NN_NNNt.bin member-name string", "zero"],
+      "prefix_counts": {"00": 96, "01": 182, "02": 120, "03": 134, "04": 134},
+      "narc_member_format": "one LZ11-compressed BTX0"
+    },
+    "unmapped_filesystem_resource_pairs": [
+      ["bey/03_047.narc", "bey/03_047t.narc"],
+      ["bey/03_048.narc", "bey/03_048t.narc"],
+      ["bey/03_154.narc", "bey/03_154t.narc"],
+      ["bey/03_155.narc", "bey/03_155t.narc"]
+    ]
+  },
+  "notes": [
+    "The model and texture tables are separate permutations; matching numeric filenames are not at the same table index.",
+    "The single texture pointer immediately after the model-pointer run is the first record of the 12-byte texture descriptor table, not an extra model-table entry.",
+    "The four Masters filesystem pairs absent from ARM9 path strings are candidates for unused or dynamically-addressed resources; absence from this table alone does not prove they are unused."
+  ]
+}
