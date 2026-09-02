@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "scope": "decompressed ARM9 Bey model/texture lookup structures",
+  "fusion_collector_bbuy": {
+    "model_pointer_table": {"offset": "0x000D7C60", "runtime_address": "0x020D7C60", "end_offset": "0x000D89C8", "count": 858, "confidence": "confirmed"},
+    "texture_descriptor_table": {"offset": "0x000D89C8", "runtime_address": "0x020D89C8", "end_offset": "0x000DB200", "count": 858, "stride": 12, "confidence": "confirmed"},
+    "usage_table": {"offset": "0x000DB200", "runtime_address": "0x020DB200", "end_offset": "0x000DCF08", "count": 929, "stride": 8, "confidence": "confirmed"},
+    "category_runs": [
+      {"group": 5, "start_index": 0, "count": 44, "unique_model_count": 44, "runtime_address": "0x020DB200"},
+      {"group": 7, "start_index": 44, "count": 80, "unique_model_count": 74, "runtime_address": "0x020DB360"},
+      {"group": 6, "start_index": 124, "count": 92, "unique_model_count": 86, "runtime_address": "0x020DB5E0"},
+      {"group": 0, "start_index": 216, "count": 93, "unique_model_count": 93, "runtime_address": "0x020DB8C0"},
+      {"group": 3, "start_index": 309, "count": 128, "unique_model_count": 113, "runtime_address": "0x020DBBA8"},
+      {"group": 4, "start_index": 437, "count": 128, "unique_model_count": 128, "runtime_address": "0x020DBFA8"},
+      {"group": 2, "start_index": 565, "count": 176, "unique_model_count": 148, "runtime_address": "0x020DC3A8"},
+      {"group": 1, "start_index": 741, "count": 188, "unique_model_count": 172, "runtime_address": "0x020DC928"}
+    ],
+    "function_anchors": {
+      "bbCustomBeyTsrKeySet": {"runtime_address": "0x02026008", "confidence": "strongly_supported"},
+      "bbFileEntryMapLoad_literal_user": {"runtime_address": "0x02027400", "confidence": "strongly_supported"},
+      "EnemyEquipSet_literal_users": ["0x02023EFC", "0x02023FCC", "0x02024014", "0x02024060", "0x020240AC", "0x020240F8"],
+      "BeyBladeLOC_consumers": ["0x02009E0C", "0x0200A210"]
+    }
+  },
+  "metal_masters_brze": {
+    "model_pointer_table": {"offset": "0x0005EB3C", "runtime_address": "0x0205EB3C", "end_offset": "0x0005F5A4", "count": 666, "confidence": "confirmed"},
+    "texture_descriptor_table": {"offset": "0x0005F5A4", "runtime_address": "0x0205F5A4", "end_offset": "0x000614DC", "count": 666, "stride": 12, "confidence": "confirmed"},
+    "usage_table": {"offset": "0x000614DC", "runtime_address": "0x020614DC", "end_offset": "0x00063D8C", "count": 1302, "stride": 8, "confidence": "confirmed"},
+    "category_runs": [
+      {"group": 2, "start_index": 0, "count": 202, "unique_model_count": 120, "runtime_address": "0x020614DC"},
+      {"group": 4, "start_index": 202, "count": 214, "unique_model_count": 134, "runtime_address": "0x02061B2C"},
+      {"group": 3, "start_index": 416, "count": 214, "unique_model_count": 134, "runtime_address": "0x020621DC"},
+      {"group": 0, "start_index": 630, "count": 260, "unique_model_count": 96, "runtime_address": "0x0206288C"},
+      {"group": 1, "start_index": 890, "count": 412, "unique_model_count": 182, "runtime_address": "0x020630AC"}
+    ],
+    "unregistered_model_narcs": ["/bey/03_047.narc", "/bey/03_048.narc", "/bey/03_154.narc", "/bey/03_155.narc"],
+    "function_anchors": {
+      "bbCustomBeyTsrKeySet": {"runtime_address": "0x0201F4F8", "confidence": "strongly_supported"},
+      "bbFileEntryMapLoad_literal_user": {"runtime_address": "0x02020AE0", "confidence": "strongly_supported"},
+      "EnemyEquipSet_literal_users": ["0x0201D4F8", "0x0201D540", "0x0201D590", "0x0201D5E8"]
+    }
+  },
+  "primary_group_semantics": {
+    "0": {"meaning": "Face / Face Bolt model family", "confidence": "strongly_supported", "embedded_model_name_examples": ["ps_f", "leo_f", "can_f", "volf_f", "sgto_f", "aqua_f"]},
+    "1": {"meaning": "Clear Wheel / Energy Ring model family", "confidence": "strongly_supported", "embedded_model_name_examples": ["ps_cw1", "leo_cw1"]},
+    "2": {"meaning": "Metal Wheel / Fusion Wheel model family", "confidence": "strongly_supported", "embedded_model_name_examples": ["storm_mw1", "rock_mw1"]},
+    "3": {"meaning": "Track model family", "confidence": "strongly_supported", "embedded_model_name_examples": ["t_145a", "t_125a"]},
+    "4": {"meaning": "Bottom / Performance Tip model family", "confidence": "strongly_supported", "embedded_model_name_examples": ["b_fa", "b_sa"]}
+  },
+  "fusion_alternate_groups": {
+    "5": {"meaning": "alternate Face presentation family", "confidence": "candidate", "embedded_model_name_examples": ["ps_fs", "leo_fs"]},
+    "6": {"meaning": "alternate Clear Wheel presentation family", "confidence": "candidate", "embedded_model_name_examples": ["ps_cw1s", "leo_cw1s"]},
+    "7": {"meaning": "alternate Metal Wheel presentation family", "confidence": "candidate", "embedded_model_name_examples": ["storm_mw1s", "rock_mw1s"]}
+  }
+}
